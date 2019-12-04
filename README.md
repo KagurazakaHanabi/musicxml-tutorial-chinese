@@ -1,3 +1,5 @@
+Translate from [musicxml-tutorial.pdf](https://wpmedia.musicxml.com/wp-content/uploads/2017/12/musicxml-tutorial.pdf)
+
 # MusicXML 3.1 Tutorial
 
 MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音乐符号创建通用格式，类似 MP3 格式用于录制音频的作用。设计这种音乐信息主要用于记谱软件，音序

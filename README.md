@@ -1,5 +1,3 @@
-Translate from [musicxml-tutorial.pdf](https://wpmedia.musicxml.com/wp-content/uploads/2017/12/musicxml-tutorial.pdf)
-
 # MusicXML 3.1 Tutorial
 
 MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音乐符号创建通用格式，类似 MP3 格式用于录制音频的作用。设计这种音乐信息主要用于记谱软件，音序
@@ -9,9 +7,9 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
 
 ## 目录
 
-- MusicXML FAQ
+- [MusicXML FAQ](chapters/MusicXML FAQ.md)
   - 为什么我们需要一个新的格式？
-  - 为什么不使用现有的格式，比如说 NIFF 和 SMDL？
+  - 为什么不使用现有的格式，例如 NIFF 和 SMDL？
   - MusicXML 的设计来自哪里？
   - 为什么使用 XML？
   - MusicXML 免费吗？
@@ -22,46 +20,46 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 为什么要使用元素而不是属性？
   - 为什么 MusicXML 这么冗长？那不是效率低下吗？
   - 在浏览器中查看 MusicXML 文件时，为什么看到的是文本而不是音乐？
-- MusicXML 中的 "Hello World"
+- MusicXML 中的 「Hello World」
 - MusicXML 文件的结构
   - 使乐谱适应层次结构
   - Top-Level Document Elements
   - The Score Header Entity
 - MusicXML 的 MIDI 兼容
-  - Attributes
+  - 属性
     - Divisions
-    - Key
+    - 调号
     - Time
     - Transpose
-  - Pitch
-  - Duration
+  - 音调
+  - 时值
   - Tied Notes
-  - Chords
-  - Muti-Part Music
-  - Repeats
+  - 和弦
+  - 多声部
+  - 重复
   - Sound Suggestions
 - MusicXML 中的符号基础
   - How Music Looks vs. How Music Sounds
-  - Attributes
-    - Staves
-    - Clef
+  - 属性
+    - 五线谱
+    - 谱号
     - Time
   - Musical Directions
   - Note Appearance
     - Symbolic Note Types
-    - Tuplets
-    - Stems
-    - Beams
-    - Accidentals
+    - 连音
+    - 符杆
+    - 符尾
+    - 临时记号
     - Notations
-  - Muti-Part Music
+  - 多声部
 - 和弦符号和 和弦图
   - 和弦符号
   - 和弦图
 - 弦乐器
-  - Fret and String
-  - String Tuning
-  - Hammer-ons and Pull-offs
+  - 品和弦
+  - 调弦
+  - 击弦和勾弦
 - 打击乐器
   - Unpitched Notes
   - Staff Lines
@@ -69,9 +67,9 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - Notehead Shapes
   - Measure Styles
 - 压缩的 .MXL 文件
-  - Compressed File Format
-  - File Suffixes and Media Types
-  - Zip Archive Structure
+  - 压缩文件格式
+  - 文件名后缀和媒体类型
+  - Zip 存档结构
 
 ### MusicXML FAQ
 

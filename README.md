@@ -1,19 +1,18 @@
 # MusicXML 3.1 Tutorial
 
-MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音乐符号创建通用格式，类似 MP3 格式用于录制音频的作用。设计这种音乐信息主要用于记谱软件，音序
-器，其他表演节目，音乐教育项目和音乐数据库。
-本教程的目的是向对阅读或编写 MusicXML 文件感兴趣的软件开发人员介绍 MusicXML。 MusicXML 具有支持专业级音乐软件所需的许多功能。 但是
-您无需使用或理解所有这些元素即可上手。
+MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音乐符号创建通用格式，类似 MP3 格式用于录制音频的作用。设计这种音乐信息主要用于记谱软件，音序器，其他表演节目，音乐教育项目和音乐数据库。
+
+本教程的目的是向对阅读或编写 MusicXML 文件感兴趣的软件开发人员介绍 MusicXML。MusicXML 具有支持专业级音乐软件所需的许多功能。 但是您无需使用或理解所有这些元素即可上手。
 
 ## 目录
 
-- [MusicXML FAQ](chapters/MusicXML FAQ.md)
+- [MusicXML FAQ](chapters/MusicXML-FAQ.md)
   - 为什么我们需要一个新的格式？
   - 为什么不使用现有的格式，例如 NIFF 和 SMDL？
-  - MusicXML 的设计来自哪里？
+  - MusicXML 的设计从何而起？
   - 为什么使用 XML？
-  - MusicXML 免费吗？
-  - MakeMusic 的软件是开源的吗？
+  - MusicXML 是否免费？
+  - MakeMusic 的软件是否开源？
   - 谁在使用 MusicXML？
   - 有哪些可用的工具？
   - 为什么要发布用于 MusicXML 2.0 的 XSD？
@@ -74,8 +73,11 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
 ### MusicXML FAQ
 
 为什么我们需要一个新的格式？
+
 What's behind some of the ways that MusicXML looks and feels?
+
 我可以使用什么工具软件？
+
 MusicXML 免费吗？
 
 ### MusicXML 中的 "Hello World"
@@ -84,8 +86,7 @@ MusicXML 免费吗？
 
 ### MusicXML 文件的结构
 
-有两种构造 MusicXML 文件的方法：声部中包含小节，小节中包含声部。
-本节介绍如何以任何一种方式进行操作，以及如何在它们之间转换，还介绍了 MusicXML 文件开始处的描述性数据。
+有两种构造 MusicXML 文件的方法：声部中包含小节，小节中包含声部。本节介绍如何以任何一种方式进行操作，以及如何在它们之间转换，还介绍了 MusicXML 文件开始处的描述性数据。
 
 ### MusicXML 的 MIDI 兼容
 
@@ -97,8 +98,7 @@ MusicXML 免费吗？
 
 ### 和弦符号和 和弦图
 
-MusicXML 为和声提供了丰富的表示形式，用于和声分析和 和弦符号。
-这部分我们讨论如何创建许多现代乐谱中的和弦符号和 和弦图，包括主唱，钢琴 / 人声 / 吉他和乐队总谱。
+MusicXML 为和声提供了丰富的表示形式，用于和声分析和 和弦符号。这部分我们讨论如何创建许多现代乐谱中的和弦符号和 和弦图，包括主唱，钢琴 / 人声 / 吉他和乐队总谱。
 
 ### 弦乐器
 

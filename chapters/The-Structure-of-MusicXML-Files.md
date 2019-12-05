@@ -2,19 +2,20 @@
 
 ## 根据层级调整乐谱
 
-Say we have a piece of music for two or more people to play. It has multiple parts, one per player, and multiple measures. XML represents data in a hierarchy, but musical scores are more like a lattice. How do we reconcile this? Should the horizontal organization of musical parts be primary, or should the vertical organization of musical measures?
+假设我们有一段需要两个或者更多的人弹奏的音乐。每个演奏者有一个声部和多个小节。XML 代表层次结构中的数据，但是乐谱更像是格子。我们该如何协调？声部的水平组织是主要的，还是小节的垂直组织？
 
-The answer is different for every music application. David Huron, a music cognition specialist and the inventor of Humdrum, advised us to make sure we could represent music both ways, and be able to switch between them easily.
+答案是每个音乐软件都各不相同。音乐认知专家、Humdrum 的发明者 David Huron 建议我们确保能够以两种方式表现音乐，并且能够轻松地转换。
 
-This is why MusicXML has two different top-level DTDs, each with its own root element. If you use the partwise DTD, the root element is `<score-partwise>`. The musical part is primary, and measures are contained within each part. If you use the timewise DTD, the root element is `<score-timewise>`. The measure is primary, and musical parts are contained within each measure. The MusicXML XSD includes both of the top-level document elements in a single XSD file.
+这就是为什么 MusicXML 有两种不同的顶层 DTD，每个都有它自己的根元素。
+如果你使用 partwise DTD，根元素是 `<score-partwise>`。乐章是主体，小节包含在乐章中。如果你使用 timewise DTD，根元素是 `<score-timewise>`。小节是主体，乐章包含在小节中。MusicXML XSD 在单个 XSD 中包含两个根元素。
 
-Having two different structures does not work well if there is no automatic way to switch between them. MusicXML provides two XSLT stylesheets to convert back and forth between the two document types. The parttime.xsl stylesheet converts from `<score-partwise>` to `<scoretimewise>`, while the timepart.xsl stylesheet converts from `<score-timewise>` to `<scorepartwise>`.
+如果没有自动的方法在两种结构之间切换，那么它们将无法正常工作。MusicXML 提供了两个 XSLT 样式表，可以在两种文档类型之间转换。parttime.xsl 样式表从 `<score-partwise>` 转换到 `<scoretimewise>`，timepart.xsl 样式表从 `<score-timewise>` 转换到 `<scorepartwise>`。
 
-An application reading MusicXML can choose which format is primary, and check for that document type. If it is your root element, just proceed. If not, check to see if it is the other MusicXML root element. If so, apply the appropriate XSLT stylesheet to create a new MusicXML document in your preferred format, and then proceed. If it is neither of the two toplevel document types, you do not have a MusicXML score, and can return an appropriate error message.
+读取 MusicXML 的应用程序可以选择主要格式，然后检查该文档类型。如果是正确的根元素，继续即可。如果不是，检查是不是另外一种 MusicXML 根元素。如果是，使用适当的 XSLT 样式表以首选格式创建新的 MusicXML 文档，然后继续。如果都不是，那么这不是一个正确的 MusicXML 乐谱，可以返回适当的错误信息。
 
-When your application writes to MusicXML, simply write to whichever format best meets your needs. Let the program reading the MusicXML convert it if necessary. If you have a twodimensional organization in your program so that either format is truly equally easy to write, consider using the score-partwise format. Most of today's MusicXML software uses this format, so if all else is equal, conversion times should be lower overall.
+当你的应用在编写 MusicXML 文档时，根据你自己的需要写入任何一种格式均可。如果需要，让读取 MusicXML 的程序转换它即可。如果在你的项目中使用两种维度的组织形式，以至于确实都很容易编写，考虑使用 `score-partwise` 格式。如今大多数的 MusicXML 软件都使用这种格式，如果其他所有条件都相同，那么转换次数更少比其他重要。
 
-## Top-Level Document Elements
+## 顶层文档元素
 
 The score.mod file defines the basic structure of a MusicXML file. The primary definition of the file is contained in these lines:
 
@@ -54,7 +55,7 @@ In addition, each MusicXML file contains a %score-header; entity, defined as:
 
 We will now look at the score-header entity in more detail. If the example in the preceding "Hello World" section gave you enough information, you may want to skip ahead to the next section that starts describing music-data.
 
-## The Score Header Entity
+## 乐谱的基础元数据
 
 The score header contains some basic metadata about a musical score, such as the title and composer. It also contains the part-list, which lists all the parts or instruments in a musical score.
 

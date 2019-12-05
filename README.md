@@ -22,8 +22,8 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
 - [MusicXML 中的「Hello World」](chapters/Hello-World-in-MusicXML.md)
 - [MusicXML 文件的结构](chapters/The-Structure-of-MusicXML-Files.md)
   - 根据层级调整乐谱
-  - Top-Level Document Elements
-  - The Score Header Entity
+  - 顶层文档元素
+  - 乐谱的基础元数据
 - MusicXML 的 MIDI 兼容
   - 属性
     - Divisions

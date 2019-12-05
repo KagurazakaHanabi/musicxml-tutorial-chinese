@@ -103,6 +103,8 @@
 
 ## T
 
+- Tied Notes 连结音
+- Time Signature 拍号
 - Transposition 移调
 - Triplet 三连音
 - Tuplet 连音

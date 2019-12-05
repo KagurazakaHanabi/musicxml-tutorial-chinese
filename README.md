@@ -32,7 +32,7 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
     - 移调
   - 音调
   - 时值
-  - Tied Notes
+  - 连结音
   - 和弦
   - 多声部
   - 重复
@@ -42,7 +42,7 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 属性
     - 五线谱
     - 谱号
-    - Time
+    - 拍号
   - Musical Directions
   - Note Appearance
     - Symbolic Note Types
@@ -61,7 +61,7 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 击弦和勾弦
 - 打击乐器
   - Unpitched Notes
-  - Staff Lines
+  - 谱线
   - Multiple Instruments Per Part
   - Notehead Shapes
   - Measure Styles

@@ -2,7 +2,7 @@
 
 MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音乐符号创建通用格式，类似 MP3 格式用于录制音频的作用。设计这种音乐信息主要用于记谱软件，音序器，其他表演节目，音乐教育项目和音乐数据库。
 
-本教程的目的是向对阅读或编写 MusicXML 文件感兴趣的软件开发人员介绍 MusicXML。MusicXML 具有支持专业级音乐软件所需的许多功能。 但是您无需使用或理解所有这些元素即可上手。
+本教程的目的是向对阅读或编写 MusicXML 文件感兴趣的软件开发人员介绍 MusicXML。MusicXML 具有支持专业级音乐软件所需的许多功能。但是您无需使用或理解所有这些元素即可上手。
 
 ## 目录
 
@@ -19,7 +19,7 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 为什么要使用元素而不是属性？
   - 为什么 MusicXML 这么冗长？那不是效率低下吗？
   - 在浏览器中查看 MusicXML 文件时，为什么看到的是文本而不是音乐？
-- MusicXML 中的 「Hello World」
+- [MusicXML 中的 「Hello World」](chapters/Hello-World-in-MusicXML.md)
 - MusicXML 文件的结构
   - 使乐谱适应层次结构
   - Top-Level Document Elements

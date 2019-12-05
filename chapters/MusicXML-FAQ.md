@@ -4,21 +4,21 @@
 
 世界上有很多好用的音乐软件，不幸的是，在它们之间共享音乐是困难的。这才是真正的问题，因为没有一个程序可以将所有事情都做得很好。必须为每个软件重新输入音乐数据，这给使用多个音乐软件的人带来很大的不便。
 
-在 MusicXML 之前，唯一受支持的音乐符号交换格式是 MIDI。MIDI 对于诸如音序器之类的演奏应用来说是一种绝佳的格式，但对于诸如音乐符号之类的其他应用而言却并非如此。 MIDI 无法区分 ♯F 和 ♭G；它不能表示符干方向，符尾，重复，连音线，小节和其他方面的标记。
+在 MusicXML 之前，唯一受支持的音乐符号交换格式是 MIDI。MIDI 对于诸如音序器之类的演奏应用来说是一种绝佳的格式，但对于诸如音乐符号之类的其他应用而言却并非如此。MIDI 无法区分 ♯F 和 ♭G；它不能表示符干方向，符尾，重复，连音线，小节和其他方面的标记。
 
-多年以来，人们已经认识到需要一种新的交换格式，但是没有成功的尝试来创建新的标准格式。 NIFF 可能是迄今为止最成功的尝试，但是它的使用非常有限，并且格式没有得到维护。 SMDL 是最雄心勃勃的尝试，但实际上没有软件使用它。
+多年以来，人们已经认识到需要一种新的交换格式，但是没有成功的尝试来创建新的标准格式。NIFF 可能是迄今为止最成功的尝试，但是它的使用非常有限，并且格式没有得到维护。SMDL 是最雄心勃勃的尝试，但实际上没有软件使用它。
 
 Internet 友好的标准格式对于 Internet 音乐出版市场的增长是必需的。在 MusicXML 之前，就像在发明 HTML 之前使用 Internet 或在发明 MIDI 之前使用合成器一样。
 
 ## 为什么不使用现有的格式，例如 NIFF 和 SMDL
 
-NIFF 和 SMDL 为解决相同类型的问题做出了出色的努力。 那么为什么不使用它们而是发明新的东西呢？
+NIFF 和 SMDL 为解决相同类型的问题做出了出色的努力。那么为什么不使用它们而是发明新的东西呢？
 
-NIFF 使用图形格式表示音乐。 NIFF 中没有「C」 的概念：相反，您可以通过将其放置在谱杆上来确定音高。 这种类型的图形音乐表示形式具有悠久的历史。 它非常适合 NIFF 工作的扫描程序。 但是，它在许多其他类型的应用程序（例如音序器和音乐数据库）中效果不佳。 对于这两种应用，MIDI 的性能都比 NIFF 好得多。 但是，NIFF 比 MIDI 更完整。 MusicXML 旨在满足所有这些类型的应用程序的共享需求。
+NIFF 使用图形格式表示音乐。NIFF 中没有「C」 的概念：相反，您可以通过将其放置在谱杆上来确定音高。这种类型的图形音乐表示形式具有悠久的历史。它非常适合 NIFF 工作的扫描程序。但是，它在许多其他类型的应用程序（例如音序器和音乐数据库）中效果不佳。对于这两种应用，MIDI 的性能都比 NIFF 好得多。但是，NIFF 比 MIDI 更完整。MusicXML 旨在满足所有这些类型的应用程序的共享需求。
 
-像 NIFF 这样的图形格式确实不能很好地用于一般互换，这是 NIFF 未被更多程序采用的主要原因之一。 另一个主要障碍是 NIFF 是二进制格式，而不是 XML 之类的文本格式。与读写二进制格式的程序相比，编写和调试程序要容易得多。
+像 NIFF 这样的图形格式确实不能很好地用于一般互换，这是 NIFF 未被更多程序采用的主要原因之一。另一个主要障碍是 NIFF 是二进制格式，而不是 XML 之类的文本格式。与读写二进制格式的程序相比，编写和调试程序要容易得多。
 
-SMDL 遭受了 试图成为代表过去，现在和未来所有可能音乐的通用解决方案 的问题。 此外，该项目并非以实际经验为基础。 结果太复杂，几乎没人能理解。复杂性极大地限制了 SMDL 的采用 - 当然也限制了我们！ - 并且没有商业软件支持它。
+SMDL 遭受了 试图成为代表过去，现在和未来所有可能音乐的通用解决方案 的问题。此外，该项目并非以实际经验为基础。结果太复杂，几乎没人能理解。复杂性极大地限制了 SMDL 的采用 - 当然也限制了我们！ - 并且没有商业软件支持它。
 
 ## MusicXML 的设计从何而起
 
@@ -47,7 +47,7 @@ Yes. MusicXML 3.1 is developed by the W3C Music Notation Community Group and lic
 
 不开源。MusicXML 格式本身的免费和开源很重要。MakeMusic 将对 MusicXML 格式的责任移交给了 W3C Music Notation Community Group 以帮助确保其在音乐界的持续成功。
 
-MakeMusic 没有看到开源我们自己的 Finale MusicXML 软件能带来的优势。我们的 Sibelius 插件不是开源的，但是我们可能会决定在将来进行更改。 许多开源应用程序也包含 MusicXML 支持。
+MakeMusic 没有看到开源我们自己的 Finale MusicXML 软件能带来的优势。我们的 Sibelius 插件不是开源的，但是我们可能会决定在将来进行更改。许多开源应用程序也包含 MusicXML 支持。
 
 ## 谁在使用 MusicXML
 
@@ -95,17 +95,38 @@ DTDs remain more readable than XSDs for many people. To learn MusicXML, you may 
 
 ## 为什么要使用元素而不是属性
 
-这主要是一个风格决定。 一些 XML 书建议尽可能在元素中而不是属性中表示语义。 这样做的优点之一是元素具有结构，而属性没有结构。 如果发现所表示的内容确实包含多个部分，则可以使用元素创建层次结构。 使用属性，您将被限制为无序列表。 对于信息检索应用程序，直接搜索元素而不是属性 / 元素组合也可能更容易。
+这主要是一个风格决定。一些 XML 书籍建议尽可能在元素中而不是属性中表示语义。这样做的优点之一是元素具有结构，而属性没有结构。如果发现所表示的内容确实包含多个部分，则可以使用元素创建层次结构。使用属性，您将被限制为无序列表。对于信息检索应用程序，直接搜索元素而不是属性 / 元素组合也可能更容易。
 
-In MusicXML, attributes are generally limited to a few uses:
+在 MusicXML 中，属性通常仅限于几种用途：
 
-- To indicate if this is where an element starts or stops, such as for slurs and tuplets.
-- To identify elements, as in measure numbers or beam levels.
-- To suggest how an element would best be printed.
-- To suggest how an element would best be converted into MIDI or other sound formats.
+- 指示哪里是元素开始或停止的位置，例如连音线 (slur) 和连音 (tuplet)。
+- 识别元素，例如小节号和符尾级别。
+- 调整元素要怎样更好的打印展示。
+- 调整元素参数更好的转化为MIDI或者其他声音格式。
 
-In both MusicXML 1.1 and 2.0, the third category - suggesting how an element would best be printed - grew enormously. So you will find that MusicXML 3.1 files make much more use of attributes than do MusicXML 1.0 files. The principles determining when to use elements and when to use attributes have remained the same.
+在 MusicXML 1.1 和 2.0 中，以上第三点极大地增长了。因此，您会发现 MusicXML 3.1 文件比 MusicXML 1.0 文件更多地使用属性。确定何时使用元素和何时使用属性的原理保持不变。
 
-In summary, we follow common recommended practice by using elements for data and attributes for metadata. We find this works well. Certainly there are DTDs and XSDs in other domains that use attributes much more extensively, and they work well too. Either way can do the job as long as it is applied consistently.
+总而言之，我们遵循常见的推荐做法，即使用元素表示数据，使用属性表示元数据。我们发现这很好。当然，在其他域中也有 DTD 和 XSD 使用更广泛的属性，并且它们也能很好地工作。只要一致地应用，任何一种方法都可以完成工作。
 
-While there are a lot of MusicXML elements, we have tried to limit them to elements that directly represent musical concepts. We have tried to avoid using elements that would introduce concepts not found in musical scores. For example, there is no "timeslice" element as found in formats like NIFF. We have generally found that we can represent what applications need without having to introduce artificial elements.
+尽管有很多 MusicXML 元素，但我们试图将它们限制为直接代表音乐概念的元素。我们试图避免使用会引入乐谱中未发现的概念的元素。例如，没有像 NIFF 这样的格式中存在的「timeslice」元素。通常，我们发现无需引入人工元素就可以表示应用程序需要什么。
+
+## 为什么 MusicXML 这么冗长？那不是效率低下吗
+
+MusicXML 既是互换格式又是发行格式。在这两种情况下，理解的重要性都比简洁更为重要。音乐表现形式非常复杂，无需尝试找出缩写代码。XML 规范建议「XML 标记中的简洁性至关重要」，我们相信这是真的。精通该领域的人应该能够通过阅读 XML 文件来了解其基础知识。我们相信 MusicXML 可以达到这个目标，而其他一些音乐 XML 提案则无法实现。
+
+当然，还有诸如 abc、Plaine 和 Easie 之类的简洁文本格式的地方，它们允许轻松快速地输入音乐数据。有用于转换 abc、Plaine 和 Easie 代码到 MusicXML 的工具。
+
+未压缩的 MusicXML 文件确实会占用大量空间，这对于数字乐谱的发行可能会出现问题。MusicXML 2.0 添加了带有 `.mxl` 后缀的压缩 zip 格式，该格式可使文件比未压缩版本小 20 倍左右。例如，一个四页的 Joplin rag 作为未压缩的.musicxml 文件占用 518K，而作为压缩的.mxl 文件仅占用 19K。它甚至比 MIDI (21K) 还小，并且 MXL 文件包含有关音乐的更多数据。
+
+## 在浏览器中查看 MusicXML 文件时，为什么看到的是文本而不是音乐
+
+为了在浏览器中将 MusicXML 文件视为音乐，您需要使用可以理解，显示和播放 MusicXML 文件的 Web 应用程序。过去，这些应用程序经常使用 Flash，但如今它们通常使用 HTML5。
+
+MusicXML 3.1 具有两种注册的媒体类型：
+
+- `application/vnd.recordare.musicxml` 用于压缩的 `.mxl` 文件
+- `application/vnd.recordare.musicxml+xml` 用于未压缩的 `.musicxml` 文件
+
+也许将来，浏览器将能够自动响应这些媒体类型，从而可以自动显示和播放网页之外的文件。
+
+可能构建一个 XSLT 样式表的可能，以将 MusicXML 转换为 Web 可读格式，对此的概念证明是由一名 MusicXML 用户完成的。但是，为音乐符号构建专业质量的 XSLT 将是一项艰巨的任务。

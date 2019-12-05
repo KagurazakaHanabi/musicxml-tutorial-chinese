@@ -63,7 +63,7 @@ Many companies, music software developers, and scholars are using MusicXML in th
 - Electronic music stands, including Newzik, Blackbinder, and OrganMuse.
 - Musicology applications and toolkits, including music21 and MelodicMatch.
 
-See our MusicXML software page at www.musicxml.com/software/ for a more complete list, including links to each application.
+See our MusicXML software page at [https://www.musicxml.com/software/](https://www.musicxml.com/software/) for a more complete list, including links to each application.
 
 ## 有哪些可用的工具
 

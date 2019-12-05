@@ -19,8 +19,8 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 为什么要使用元素而不是属性？
   - 为什么 MusicXML 这么冗长？那不是效率低下吗？
   - 在浏览器中查看 MusicXML 文件时，为什么看到的是文本而不是音乐？
-- [MusicXML 中的 「Hello World」](chapters/Hello-World-in-MusicXML.md)
-- MusicXML 文件的结构
+- [MusicXML 中的「Hello World」](chapters/Hello-World-in-MusicXML.md)
+- [MusicXML 文件的结构](chapters/The-Structure-of-MusicXML-Files.md)
   - 使乐谱适应层次结构
   - Top-Level Document Elements
   - The Score Header Entity
@@ -28,8 +28,8 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 属性
     - Divisions
     - 调号
-    - Time
-    - Transpose
+    - 拍号
+    - 移调
   - 音调
   - 时值
   - Tied Notes

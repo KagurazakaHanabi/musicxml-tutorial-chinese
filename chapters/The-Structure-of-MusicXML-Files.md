@@ -17,7 +17,7 @@
 
 ## 顶层文档元素
 
-The score.mod file defines the basic structure of a MusicXML file. The primary definition of the file is contained in these lines:
+score.mod 文件定义了 MusicXML 的基本结构。主要的文档定义都包含在这几行中：
 
 ```ampl
 <![ %partwise; [
@@ -32,11 +32,11 @@ The score.mod file defines the basic structure of a MusicXML file. The primary d
 ]]>
 ```
 
-The `%partwise;` and `%timewise;` entities are set in the top-level DTDs partwise.dtd and timewise.dtd. The `<![` lines indicate a conditional clause like the `#ifdef` statement in C. So if partwise.dtd is used, the `<score-partwise>` element is defined, while if timewise.dtd is used, the `<score-timewise>` element is defined.
+`%partwise;` 和 `%timewise;` 是在顶级 DTD partwise.dtd 和 timewise.dtd 中定义的。`<![` 表示条件语句，类似于 C 中的 `#ifdef`。所以如果正在使用 partwise.dtd，`<score-partwise>` 元素就被定义，如果正在使用 timewise.dtd，`<score-timewise>` 元素就被定义。
 
-You can see that the only difference between the two formats is the way that the `part` and `measure` elements are arranged. A score-partwise document contains one or more `part` elements, and each `part` element contains one or more `measure` elements. The score-timewise document reverses this ordering.
+这两种格式唯一的不同是是 `part` 和 `measure` 元素的排列顺序。score-partwise 文档包含一个或多个 `part` 元素，每个 `part` 包含一个或多个 `measure` 元素。score-timewise 文档则相反。
 
-In either case, the lower-level elements are filled with a music-data entity. This contains the actual music in the score, and is defined as:
+在任何一种情况下，较低级别的元素都填充有音乐数据实体。包含乐谱中的实际音乐，定义如下：
 
 ```ampl
 <!ENTITY % music-data
@@ -45,7 +45,7 @@ In either case, the lower-level elements are filled with a music-data entity. Th
           grouping | link | bookmark)*">
 ```
 
-In addition, each MusicXML file contains a %score-header; entity, defined as:
+此外，每个 MusicXML 文件都包含一个 `%score-header`，定义如下：
 
 ```ampl
 <!ENTITY % score-header
@@ -53,13 +53,13 @@ In addition, each MusicXML file contains a %score-header; entity, defined as:
           identification?, defaults?, credit*, part-list)">
 ```
 
-We will now look at the score-header entity in more detail. If the example in the preceding "Hello World" section gave you enough information, you may want to skip ahead to the next section that starts describing music-data.
+我们将详细看下 `score-header`。如果前面的「Hello World」示例提供了足够的信息，你可能希望跳到下个开始描述 `music-data` 的章节。
 
 ## 乐谱的基础元数据
 
-The score header contains some basic metadata about a musical score, such as the title and composer. It also contains the part-list, which lists all the parts or instruments in a musical score.
+乐谱的头部包含关于此乐谱的基本元数据，例如标题和作曲。它还包含 `part-list`，列出了乐谱中所有的声部和乐器。
 
-As an example, take our MusicXML encoding of "Mut," the 22nd song from Franz Schubert's song cycle Winterreise. Here is a sample score header for that work:
+以「Mut」的 MusicXML 为例，这是 Franz Schubert 的 _Winterreise_ 中的第 22 首歌。示例如下：
 
 ```xml
 <work>
@@ -90,9 +90,9 @@ As an example, take our MusicXML encoding of "Mut," the 22nd song from Franz Sch
 </part-list>
 ```
 
-You see that this score-header has all five of the possible top-level elements in the score-header entity: the work, movement-number, movement-title, identification, and part-list. Only the partlist is required, all other elements are optional.
+可以看到 `score-header` 包括所有五种元素：`work`，`movement-number`, `movement-title`，`identification` 和 `part-list`。只有 `part-list` 是必需的，其它所有元素是可选的。
 
-Let's look at each part in turn:
+逐行看下每个部分：
 
 ```xml
 <work>
@@ -101,21 +101,21 @@ Let's look at each part in turn:
 </work>
 ```
 
-In MusicXML, individual movements are usually represented as separate files. The work element is used to identify the larger work of which this movement is a part. Schubert's works are more commonly referred to via D. numbers than opus numbers, so that is what we use in the worknumber element; the work-title is the name of the larger work.
+在 MusicXML中，独立的乐章通常用单个文件表示。`work` 元素用于标识这是长作品中的哪个章节。Schubert's works are more commonly referred to via D. numbers than opus numbers, so that is what we use in the `work-number` element；`work-title` 是作品名。
 
-If you have all the movements in a work represented, you can use the opus element to link to the MusicXML opus file that in turn contains links to all the movements in the work.
+If you have all the movements in a work represented, you can use the `opus` element to link to the MusicXML opus file that in turn contains links to all the movements in the work.
 
 ```xml
 <movement-number>22</movement-number>
 ```
 
-_Winterreise_ is a cycle of 24 songs. We use the movement-number to identify that "Mut" is the 22nd song in the cycle - it is not restricted to use for movements in a symphony.
+使用 `movement-number` 标识「Mut」是 _Winterreise_ 中的第 22 首歌，它不限于用于交响乐中的乐章。
 
 ```xml
 <movement-title>Mut</movement-title>
 ```
 
-Similarly, we use the movement-title element for the title of the individual song. If you have a single song that is not part of a collection, you will usually put the title of the song in the movement-title element, and not use either the work or movement-number elements.
+类似的，我们将 `movement-title` 元素用于单曲的标题。如果一首单曲没有很多部分组成，通常会将歌曲的标题放在 `movement-title` 元素中，并且不使用 `work` 和 `movement-number` 元素。
 
 ```xml
 <identification>
@@ -123,13 +123,13 @@ Similarly, we use the movement-title element for the title of the individual son
   <creator type="poet">Wilhelm Müller</creator>
 ```
 
-The identification element is defined in the identity.mod file. It contains basic metadata elements based on the Dublin Core. In this song, as many others, there are two creators: in this case, the composer and the poet. Therefore, we use two creator elements, and distinguish their roles with the type attribute. For an instrumental work with just one composer, there is no need to use the type attribute.
+`identification` 元素的定义位于 identity.mod 文件中。它包含基于 Dublin Core 的基本元数据元素。在这首歌中有两个创作者，是作曲 (composer) 和作词 (poet)。所以使用了两个 `creator` 元素，并使用 `type` 属性区分它们。如果作品的创作者只有作曲，那么就没有必要使用 `type` 属性。
 
 ```xml
   <rights>Copyright © 2001 Recordare LLC</rights>
 ```
 
-The rights element contains the copyright notice. You may have multiple rights elements if multiple copyrights are involved, say for the words and the music. As with the creator element, these can have type attributes to indicate what type of copyright is involved. In this example, both the words and music to Mut are in the public domain, but we are copyrighting our electronic edition of the work.
+`rights` 元素包含版权信息。如果包含多个版权声明（例如词和曲），需要使用多个 `rights` 元素。和 `creator` 元素一样可以使用 `type` 属性说明版权的类型。在此示例中，Mut 的文字和音乐均属于公共领域，但我们对作品的电子版拥有版权。
 
 ```xml
   <encoding>
@@ -140,16 +140,16 @@ The rights element contains the copyright notice. You may have multiple rights e
   </encoding>
 ```
 
-The encoding element contains information about how the MusicXML file was created. Here we are using all four of the available sub-elements to describe the encoding. You can have multiple instances of these elements, and they can appear in any order.
+The `encoding` element contains information about how the MusicXML file was created. Here we are using all four of the available sub-elements to describe the encoding. You can have multiple instances of these elements, and they can appear in any order.
 
 ```xml
   <source>Based on Breitkopf &amp; Härtel edition of 1895</source>
 </identification>
 ```
 
-The source element is useful for music that is encoded from a paper published score or manuscript. Different editions of music will contain different musical information. In our case, we used the Dover reprint of the Breitkopf & Härtel edition of Winterreise as our starting point, correcting some errors in that published score.
+`source` 元素对于从纸质乐谱或手稿进行编码的音乐很有用。不同版本的音乐将包含不同的音乐信息。在我们的案例中，我们以 _Winterreise_ 的 Breitkopf＆Härtel 版本的 Dover 重印为起点，更正了该已发布乐谱中的一些错误。
 
-The identification element also may contain a miscellaneous element. This in turn contains miscellaneous-field elements, each with a name attribute. This can be helpful if your software contains some identification information not present in the MusicXML DTD that you want to preserve when saving and reading from MusicXML.
+`identification` 元素还可以包含 `miscellaneous` 元素。 依次包含 `miscellaneous` 元素，每个元素都有一个 `name` 属性。如果您的软件包含一些在 MusicXML DTD 中不存在的标识信息，则在保存和读取 MusicXML 时要保留这些信息可能会有所帮助。
 
 ```xml
 <part-list>
@@ -162,13 +162,13 @@ The identification element also may contain a miscellaneous element. This in tur
 </part-list>
 ```
 
-The part-list is the one part of the score header that is required in all MusicXML scores. It is made up of a series of score-part elements, each with a required id attribute and part-name element. By convention, our software simply numbers the parts as "P1", "P2", etc. to create the id attributes. You may use whatever technique you like as long as it produces unique names for each score-part.
+`part-list` 是所有 MusicXML 乐谱中所需的一部分。它由一系列 `sore-part` 元素组成，每个元素都具有必需的 `id` 属性和 `part-name` 元素。By convention, our software simply numbers the parts as "P1", "P2", etc. to create the `id` attributes. You may use whatever technique you like as long as it produces unique names for each `score-part`.
 
-In addition to the part-name, there are many optional elements that can be included in a score-part:
+In addition to the `part-name`, there are many optional elements that can be included in a `score-part`:
 
-- An identification element, helpful if individual parts come from different sources.
-- A part-abbreviation element. Often, you will use the part-name for the name used at the start of the score, and the part-abbreviation for the abbreviated name used in succeeding systems.
-- A group element, used when different parts can be used for different purposes. In MuseData, for instance, there will often be different parts used for a printed score, a printed part, a MIDI sound file, or for data analysis.
-- One or more score-instrument elements, used to describe instrument sounds and virtual instrument settings, as well as to define multiple instruments within a score-part. This element serves as a reference point for MIDI instrument changes.
-- One or more midi-device elements for identifying the MIDI devices or ports that are being used in a multi-port configuration. Multiple devices let you get beyond MIDI's 16-channel barrier.
-- One or more midi-instrument elements, specifying the initial MIDI setup for each score-instrument within a part.
+- An `identification` element, helpful if individual parts come from different sources.
+- A `part-abbreviation` element. Often, you will use the `part-name` for the name used at the start of the score, and the `part-abbreviation` for the abbreviated name used in succeeding systems.
+- A `group` element, used when different parts can be used for different purposes. In MuseData, for instance, there will often be different parts used for a printed score, a printed part, a MIDI sound file, or for data analysis.
+- One or more `score-instrument` elements, used to describe instrument sounds and virtual instrument settings, as well as to define multiple instruments within a `score-part`. This element serves as a reference point for MIDI instrument changes.
+- One or more `midi-device` elements for identifying the MIDI devices or ports that are being used in a multi-port configuration. Multiple devices let you get beyond MIDI's 16-channel barrier.
+- One or more `midi-instrument` elements, specifying the initial MIDI setup for each `score-instrument` within a part.

@@ -37,7 +37,7 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 多声部
   - 重复
   - Sound Suggestions
-- MusicXML 中的符号基础
+- [MusicXML 中的符号基础](chapters/Notation-Basics-in-MusicXML.md)
   - How Music Looks vs. How Music Sounds
   - 属性
     - 五线谱

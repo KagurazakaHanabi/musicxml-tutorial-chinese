@@ -24,16 +24,17 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 根据层级调整乐谱
   - 顶层文档元素
   - 乐谱的基础元数据
-- [MusicXML 的 MIDI 兼容](chapters/The-MIDI-Compatible-Part-of-MusicXML.md)
+- [MusicXML 中 MIDI 兼容的部分](chapters/The-MIDI-Compatible-Part-of-MusicXML.md)
   - 属性
     - Divisions
     - 调号
     - 拍号
     - 移调
-  - 音调
+  - 音高
   - 时值
   - 连结音
   - 和弦
+  - 歌词
   - 多声部
   - 重复
   - Sound Suggestions

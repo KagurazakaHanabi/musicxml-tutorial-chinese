@@ -1,18 +1,18 @@
-# MusicXML 的 MIDI 兼容
+# MusicXML 中 MIDI 兼容的部分
 
-MusicXML music data contains two main types of elements. One set of elements is used primarily to represent how a piece of music should sound. These are the elements that are used when creating a MIDI file from MusicXML. The other set is used primarily to represent how a piece of music should look. These elements are used when creating a Finale file from MusicXML.
+MusicXML 音乐数据主要包含两种类型的元素。一组元素主要用于表示声音。这些是从 MusicXML 创建 MIDI 文件时使用的元素。另一组主要用于表示乐谱的外观。
 
-We encourage programs writing MusicXML to write as much accurate data as they can. The only elements that are required, though, are the sounding elements that relate directly to writing a MIDI file from MusicXML. This is where we will start in introducing the musical elements of a MusicXML file.
+我们鼓励编写 MusicXML 的程序编写尽可能多的准确数据。但是，唯一必需的元素是与从 MusicXML 写入 MIDI 文件直接相关的声音元素。这是我们开始介绍 MusicXML 文件的音乐元素的地方。
 
-As an example, we will use the first four bars of "Après un rêve" by Gabriel Fauré:
+例如，GabrielFauré 的 Aprèsunrêve 的前四个小节：
 
 ![The MIDI-Compatible Part of MusicXML](../assets/02.jpg)
 
 ## Attributes
 
-The attributes element contains information about time signatures, key signatures, transpositions, clefs, and other musical data that is usually specified at the beginning of a piece or at the start of a measure. We discuss the MIDI-compatible elements here; the rest are discussed in the following sections.
+`attributes` 元素包含有关拍号，调号，移调，谱号和其他音乐数据的信息，这些信息通常是在乐曲的开头或小节的开头指定的。我们在这里讨论 MIDI 兼容的元素。其余各节将在以下各节中讨论。
 
-In this example, our Finale translator produces the following MIDI-compatible attributes:
+以下是在此示例中的 MIDI 兼容属性：
 
 ```xml
 <attributes>
@@ -28,28 +28,27 @@ In this example, our Finale translator produces the following MIDI-compatible at
 </attributes>
 ```
 
-## Divisions
+### Divisions
 
-Musical durations are commonly referred to as fractions: whole notes, half notes, quarter notes, and the like. While each musical note could have a fraction associated with it, MusicXML instead follows MIDI by specifying the number of divisions per quarter note at the start of a musical part, and then specifying note durations in terms of these divisions.
+音符时值通常用分数表示：全音符，二分音符，四分音符等。尽管每个音符都可以与之相关联，但是 MusicXML 却遵循 MIDI，方法是在音乐声部的开头指定每四分音符的分度 (divisions)，然后根据这些分度来指定音符的时值。
 
-MusicXML allows divisions to change in the middle of a part, but most software will probably find it easiest to compute one divisions value per part and put that at the beginning of the first measure. The divisions value of 24 in this example allows for both triplet eighth notes (duration
-of 8) and regular sixteenth notes (duration of 6).
+MusicXML 允许在声部中更改 divisions，但是大多数软件会发现最容易计算出每个声部的 divisions 并将其放在第一个小节的开头。在此示例中，divisions 的值为 24 允许两个三连音八分音符 (duration of 8) 和常规十六分音符(duration of 6)。
 
-## Key
+### 调号
 
-Standard key signatures are represented very much like MIDI key signatures. The fifths element specifies the number of flats or sharps in the key signature - negative for flats, positive for sharps. The fifths name indicates that this value represents the key signature's position on the circle of fifths. MusicXML uses the mode element to indicate major or minor key signatures.
+标准调号非常类似于 MIDI 调号。`fifths` 元素定义了调号中的升调或降调，升调为正，降调为负。`fifths` 元素中的值代表调号在五度圈中的位置。MusicXML 使用 `mode` 元素表示大调 (major) 或小调 (minor)。
 
-## Time
+### 拍号
 
-Standard key signatures are represented very much like MIDI key signatures. The fifths element specifies the number of flats or sharps in the key signature - negative for flats, positive for sharps. The fifths name indicates that this value represents the key signature's position on the circle of fifths. MusicXML uses the mode element to indicate major or minor key signatures.
+在 MusicXML 中，标准拍号的表示比在 MIDI 中更简单。`beats` 元素表示拍号的分子，`beats-type` 元素表示分母。
 
-## Transpose
+### 移调
 
-If you are writing a part for a transposing instrument, the transposition must be specified in MusicXML in order for the sound output to be correct. The transpose element represents what must be added to the written pitch to get the correct sounding pitch.
+如果要为移调乐器编写声部，则必须在 MusicXML 中指定移调，以使声音输出正确。The `transpose` 元素表示 what must be added to the written pitch to get the correct sounding pitch。
 
-The chromatic element, representing the number of chromatic steps to add to the written pitch, is the one required element. The diatonic, octave-change, and double elements are elements.
+`chromatic` 元素表示半音阶 (chromatic steps)，是一个必要的元素。The `diatonic`, `octave-change`, and `double`e elements are elements.
 
-Say we have a part written for a trumpet in B-flat. A written "C" on this part will sound as a Bflat on a piano. This transposition is one diatonic step down (C to B) and two chromatic half steps down (C to B to B-flat). In MusicXML it would be represented as:
+假设我们有一个用 ♭B 写的小号声部。在此声部上写的 C 在钢琴上的发音为 ♭B。这个变调是下降一个全音 (C -> B) 和下降两个半音 (C -> B -> ♭B)。在 MusicXML 中，它表示为：
 
 ```xml
 <transpose>
@@ -58,13 +57,13 @@ Say we have a part written for a trumpet in B-flat. A written "C" on this part w
 </transpose>
 ```
 
-The diatonic element is not needed for correct MIDI output, but it helps get transposition notation correct and programs are encouraged to use it wherever possible.
+The `diatonic` element is not needed for correct MIDI output, but it helps get transposition notation correct and programs are encouraged to use it wherever possible.
 
-The octave-change element is used when transpositions exceed an octave in either direction. The double element is used when the part should be doubled an octave lower, as when a single part is used for both cello and string bass.
+The `octave-change` element is used when transpositions exceed an octave in either direction. The `double` element is used when the part should be doubled an octave lower, as when a single part is used for both cello and string bass.
 
-## Pitch
+## 音高
 
-Pitch, duration, ties, and lyrics are all represented within the MusicXML note element. For example, the E-flat that starts bar 3 in the voice part has the following MIDI-compatible elements:
+`pitch`, `duration`, `ties`, and `lyrics` are all represented within the MusicXML `note` element. For example, the ♭E that starts bar 3 in the voice part has the following MIDI-compatible elements:
 
 ```xml
 <note>
@@ -83,9 +82,9 @@ Pitch, duration, ties, and lyrics are all represented within the MusicXML note e
 </note>
 ```
 
-In MIDI, a pitch is represented by a single number. MusicXML divides pitch up into three parts: the step element (A, B, C, D, E, F, or G), an optional alter element (-1 for flat, 1 for sharp), and an octave element (4 for the octave starting with middle C).
+In MIDI, a pitch is represented by a single number. MusicXML divides pitch up into three parts: the `step` element (A, B, C, D, E, F, or G), an optional `alter` element (-1 for flat, 1 for sharp), and an `octave` element (4 for the octave starting with middle C).
 
-The pitch represents the sound, not what is notated, so an alter element must be included even if represents a flat or sharp that is part of the key signature. This is why the E-flat contains an alter element, though there is no accidental on the note.
+The pitch represents the sound, not what is notated, so an `alter` element must be included even if represents a flat or sharp that is part of the key signature. This is why the E-flat contains an `alter` element, though there is no accidental on the note.
 
 Alter values of -2 and 2 can be used for double-flat and double-sharp. Decimal values can be used for microtones (e.g., 0.5 for a quarter-tone sharp), but not all programs may convert this into
 MIDI pitch-bend data.
@@ -99,15 +98,15 @@ For rests, a rest element is used instead of the pitch element. The whole rest i
 </note>
 ```
 
-## Duration
+## 时值
 
 The duration element is an integer that represents a note's duration in terms of divisions per quarter note. Since our example has 24 divisions per quarter note in the voice part, a quarter note has a duration of 24. The eighth-note triplets have a duration of 8, while the eighth notes have a duration of 12.
 
-## Tied Notes
+## 连结音
 
 The sounding part of a tied note is indicated by the tie element. The tie element has a type of start for the starting note of a tie, and a type of stop for the ending note in a tie. A note element can have two tie elements. If a note is tied to the notes both before and after it, place the tie to the previous note, `<tie type="stop">`, before the `<tie type="start">` to the next note.
 
-## Chords
+## 和弦
 
 The duration elements in MusicXML move a musical counter. To play chords, we need to indicate that a note should start at the same time as the previous note, rather than following the previous note. To do this in MusicXML, add a chord element to the note.
 
@@ -144,7 +143,7 @@ Each note in the chord following the first one includes a chord element before t
 
 If you find that you have notes in a chord with different durations, you are probably better representing this as multi-part music rather than a chord. If you must have notes with different durations in the chord, the longest note must be the first note in the chord.
 
-## Lyrics
+## 歌词
 
 While lyrics are not yet used in sound generation, they are included in Standard MIDI files, so we will discuss them here with the other MIDI-compatible features of MusicXML.
 
@@ -192,7 +191,7 @@ Multiple verses are indicating using multiple lyric elements. The number and nam
 
 MusicXML has end-line and end-paragraph elements to support Standard MIDI File Lyric metaevents specified in RP-017. These are used for karaoke and similar applications. Elements for humming and laughing may also be included, though they do not have MIDI equivalents. These lyric elements have not yet been implemented in most MusicXML software.
 
-## Multi-Part Music
+## 多声部
 
 While monophonic instruments like trumpet, flute, and voice move along one note at a time, instruments like the piano can have many musical lines at once. Take this simple example from the first bar of Frederic Chopin's Prelude, Op. 28, No. 20:
 
@@ -295,7 +294,7 @@ But the choice of what to use is up to you, based on what fits your software bes
 
 In both cases, we would then use a `<backup>` element with a duration of 16 to move from the end of the first staff to the beginning of the second staff, where we can continue with the left-hand line. MusicXML offers more features for multi-part and multi-staff writing that will be described in later sections, but the elements listed here are all that is needed to multi-part sound output.
 
-## Repeats
+## 重复
 
 Repeats and endings are represented by the `<repeat>` and `<ending>` elements with a `<barline>`, as defined in the barline.mod file.
 

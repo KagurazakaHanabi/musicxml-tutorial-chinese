@@ -140,7 +140,7 @@ MusicXML 中的 `duration` 元素可移动音乐计数器。要弹奏和弦，�
 
 每个和弦中的音符，在 `pitch` 元素前的第一个元素都是 `chord`。
 
-如果发现和弦中的音符具有不同的时值，则最好将其表示为多声部音乐，而不是和弦。 如果您的和弦中必须有不同时值的音符，则最长的音符必须是和弦中的第一音符。
+如果发现和弦中的音符具有不同的时值，则最好将其表示为多声部音乐，而不是和弦。如果您的和弦中必须有不同时值的音符，则最长的音符必须是和弦中的第一音符。
 
 ## 歌词
 
@@ -148,7 +148,7 @@ MusicXML 中的 `duration` 元素可移动音乐计数器。要弹奏和弦，�
 
 MusicXML 中的歌词使用可选的 `syllabic` 元素来指示音节如何适应单词，而不是像某些其他格式那样基于连字符和空格的约定。`syllabic` 的值可以是 single，begin，end 或 middle。
 
-前面我们看到，以 ♭E 开头的第三小节的 `syllabic` 值为 end，因为 meil 是两个音节单词的结尾。 image 中的 ma 音节的 `syllabic` 值为 middle。在第二小节，音符为：
+前面我们看到，以 ♭E 开头的第三小节的 `syllabic` 值为 end，因为 meil 是两个音节单词的结尾。image 中的 ma 音节的 `syllabic` 值为 middle。在第二小节，音符为：
 
 ```xml
 <note>
@@ -190,7 +190,7 @@ MusicXML 中的歌词使用可选的 `syllabic` 元素来指示音节如何适�
 
 多段歌词使用多个 `lyric` 元素表示。`number` 和 `name` 属性可用于区分它们：第一段歌词为 `<lyric number="1">`，第二段为 `<lyric number="2">`。
 
-MusicXML has `end-line` and `end-paragraph` elements to support Standard MIDI File Lyric metaevents specified in RP-017. These are used for karaoke and similar applications. Elements for humming and laughing may also be included, though they do not have MIDI equivalents. These `lyric` elements have not yet been implemented in most MusicXML software.
+MusicXML 具有 `end-line` 和 `end-paragraph` 元素，以支持 RP-017 中指定的标准 MIDI 文件歌词元事件。这些用于卡拉 OK 和类似的应用程序。humming 和 laughing元素也可能包括在内，尽管它们没有 MIDI 等效项。这些 `lyric` 元素尚未在大多数 MusicXML 软件中实现。
 
 ## 多声部
 

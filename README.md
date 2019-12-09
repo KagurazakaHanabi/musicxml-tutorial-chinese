@@ -56,11 +56,11 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
 - [和弦符号和 和弦图](chapters/Chord-Symbols-and-Diagrams.md)
   - 和弦符号
   - 和弦图
-- 弦乐器
+- [弦乐器](chapters\Tablature-in-MusicXML.md)
   - 品和弦
   - 调弦
   - 击弦和勾弦
-- 打击乐器
+- [打击乐器](chapters/Percussion-in-MusicXML.md)
   - Unpitched Notes
   - 谱线
   - Multiple Instruments Per Part

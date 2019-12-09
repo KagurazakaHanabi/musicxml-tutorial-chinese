@@ -66,7 +66,7 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - Multiple Instruments Per Part
   - Notehead Shapes
   - Measure Styles
-- 压缩的 .MXL 文件
+- [压缩的 .MXL 文件](chapters/Compressed-MXL-Files.md)
   - 压缩文件格式
   - 文件名后缀和媒体类型
   - Zip 存档结构

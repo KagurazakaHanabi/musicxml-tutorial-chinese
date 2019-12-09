@@ -88,7 +88,7 @@ MusicXML 允许在声部中更改 divisions，但是大多数软件会发现最�
 
 `alter` 值为 -2 和 2 时用于双降调和双升调。小数值可以用于微调（例如，0.5 为升四分之一调），但并非所有程序都可以将其转换为 MIDI 数据。
 
-对于休止符，使用 `rest` 代替 `pitch` 元素。在人声声部的 3/4 处的全休止符表示为：
+对于休止符，使用 `rest` 代替 `pitch` 元素。在人声声部的全休止符表示为：
 
 ```xml
 <note>
@@ -99,17 +99,17 @@ MusicXML 允许在声部中更改 divisions，但是大多数软件会发现最�
 
 ## 时值
 
-The `duration` element is an integer that represents a note's duration in terms of divisions per quarter note. Since our example has 24 divisions per quarter note in the voice part, a quarter note has a duration of 24. The eighth-note triplets have a duration of 8, while the eighth notes have a duration of 12.
+`duration` 元素是一个整数，divisions 的倍数表示一个音符的时值。因为我们例子中一个四分音符的 divisions 值为24，所以一个四分音符的 `duration` 值是24。八分三连音中的一个音符 `duration` 是8，一个八分音符 `duration` 值为 12。
 
 ## 连结音
 
-The sounding part of a tied note is indicated by the `tie` element. The `tie` element has a type of start for the starting note of a tie, and a type of stop for the ending note in a tie. A note element can have two `tie` elements. If a note is tied to the notes both before and after it, place the tie to the previous note, `<tie type="stop">`, before the `<tie type="start">` to the next note.
+连结音的发声部分由 `tie` 元素指示。tie 元素的 `type` 为连结音的开始音符为 `start`，`stop` 为连结音的结束音符。一个 `note` 元素可以有两个 `tie` 元素。如果一个音符与该音符之前和之后的音符都绑定在一起，则将 `<tie type ="stop">` 放在 `<tie type ="start">` 之前。
 
 ## 和弦
 
-The `duration` elements in MusicXML move a musical counter. To play chords, we need to indicate that a note should start at the same time as the previous note, rather than following the previous note. To do this in MusicXML, add a `chord` element to the note.
+MusicXML 中的 `duration` 元素可移动音乐计数器。要弹奏和弦，我们需要指出一个音符应该与前一个音符同时开始，而不是跟随前一个音符。要在 MusicXML 中执行此操作，请在音符中添加一个 `chord` 元素。
 
-In our example, the piano part does not have rhythms more complex than eighth notes, so our converter sets the divisions value to 2. With 2 divisions per quarter note, the sound portion of the first chord in the piano part is represented as:
+在我们的示例中，钢琴声部的节奏不比八分音符复杂，因此我们的转换器将分度值设置为 2。每四分音符 2 分度，钢琴声部中第一和弦的声音部分表示为：
 
 ```xml
 <note>
@@ -138,15 +138,17 @@ In our example, the piano part does not have rhythms more complex than eighth no
 </note>
 ```
 
-Each note in the chord following the first one includes a `chord` element before the `pitch` element.
+每个和弦中的音符，在 `pitch` 元素前的第一个元素都是 `chord`。
 
-If you find that you have notes in a chord with different durations, you are probably better representing this as multi-part music rather than a chord. If you must have notes with different durations in the chord, the longest note must be the first note in the chord.
+如果发现和弦中的音符具有不同的时值，则最好将其表示为多声部音乐，而不是和弦。 如果您的和弦中必须有不同时值的音符，则最长的音符必须是和弦中的第一音符。
 
 ## 歌词
 
-While lyrics are not yet used in sound generation, they are included in Standard MIDI files, so we will discuss them here with the other MIDI-compatible features of MusicXML.
+虽然歌词尚未用于声音生成，但它们已包含在标准 MIDI 文件中，因此我们将在此处与 MusicXML 的其他 MIDI 兼容功能进行讨论。
 
-Lyrics in MusicXML use an optional `syllabic` element to indicate how a syllable fits into a word, rather than having conventions based on hyphens and spaces as some other formats do. The values for syllabic can be "single", "begin", "end", or "middle". We saw earlier that the E-flat starting the third measure had a syllabic value of "end", since "meil" was the end of a twosyllable word. The "ma" syllable in "image" has a syllabic value of "middle". In the second measure, the notes are:
+MusicXML 中的歌词使用可选的 `syllabic` 元素来指示音节如何适应单词，而不是像某些其他格式那样基于连字符和空格的约定。`syllabic` 的值可以是 single，begin，end 或 middle。
+
+前面我们看到，以 ♭E 开头的第三小节的 `syllabic` 值为 end，因为 meil 是两个音节单词的结尾。 image 中的 ma 音节的 `syllabic` 值为 middle。在第二小节，音符为：
 
 ```xml
 <note>
@@ -184,11 +186,11 @@ Lyrics in MusicXML use an optional `syllabic` element to indicate how a syllable
 </note>
 ```
 
-The actual text of the lyric is specified in the text element. A note may have multiple syllables, in which case the multiple syllabic/text element pairs should be separated by an elision element. Word extensions may be indicated by using the extend element, as in the “meil” syllable above.
+歌词的实际文本在 `text` 元素中指定。一个音符可能有多个音节，在这种情况下，多个 `syllabic` / `text` 元素对 应该用 `elision` 元素分开。可以通过使用 `extend` 元素来指示单词扩展名，如上面的 "meil" 音节一样。
 
-Multiple verses are indicating using multiple lyric elements. The number and name attributes can be used to distinguish them: `<lyric number="1">` for the first verse, `<lyric number="2">` for the second.
+多段歌词使用多个 `lyric` 元素表示。`number` 和 `name` 属性可用于区分它们：第一段歌词为 `<lyric number="1">`，第二段为 `<lyric number="2">`。
 
-MusicXML has end-line and end-paragraph elements to support Standard MIDI File Lyric metaevents specified in RP-017. These are used for karaoke and similar applications. Elements for humming and laughing may also be included, though they do not have MIDI equivalents. These lyric elements have not yet been implemented in most MusicXML software.
+MusicXML has `end-line` and `end-paragraph` elements to support Standard MIDI File Lyric metaevents specified in RP-017. These are used for karaoke and similar applications. Elements for humming and laughing may also be included, though they do not have MIDI equivalents. These `lyric` elements have not yet been implemented in most MusicXML software.
 
 ## 多声部
 

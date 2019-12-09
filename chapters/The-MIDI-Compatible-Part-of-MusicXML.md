@@ -57,13 +57,13 @@ MusicXML 允许在声部中更改 divisions，但是大多数软件会发现最�
 </transpose>
 ```
 
-The `diatonic` element is not needed for correct MIDI output, but it helps get transposition notation correct and programs are encouraged to use it wherever possible.
+正确的 MIDI 输出不需要 `diatonic` 元素，但是它有助于正确设置移调符号，并鼓励程序尽可能使用它。
 
-The `octave-change` element is used when transpositions exceed an octave in either direction. The `double` element is used when the part should be doubled an octave lower, as when a single part is used for both cello and string bass.
+当移调在任意方向都超过一个八度时，将使用 `octave-change` 元素。当声部降低两个八度时，将使用 `double` 元素，例如，大提琴和低音提琴都使用单个声部时。
 
 ## 音高
 
-`pitch`, `duration`, `ties`, and `lyrics` are all represented within the MusicXML `note` element. For example, the ♭E that starts bar 3 in the voice part has the following MIDI-compatible elements:
+音高，时值，连音和歌词都在 `note` 元素中表示。例如，在人声声部的第三小节开始的♭E 具有以下 MIDI 兼容元素：
 
 ```xml
 <note>
@@ -82,14 +82,13 @@ The `octave-change` element is used when transpositions exceed an octave in eith
 </note>
 ```
 
-In MIDI, a pitch is represented by a single number. MusicXML divides pitch up into three parts: the `step` element (A, B, C, D, E, F, or G), an optional `alter` element (-1 for flat, 1 for sharp), and an `octave` element (4 for the octave starting with middle C).
+在 MIDI 中，音高使用一个数字表示。MusicXML 将音高分为三个部分：`step` 元素（C, D, E, F, G, A, B），可选的 `alter` 元素（-1 降调，1 升调），和 `octave` 元素（以中央 C 开头的八度为 4）。
 
-The pitch represents the sound, not what is notated, so an `alter` element must be included even if represents a flat or sharp that is part of the key signature. This is why the E-flat contains an `alter` element, though there is no accidental on the note.
+音高代表声音而不是标记，所以即使代表调号的升降，也必须包含一个 `alter` 元素。这就是 ♭E 包含 `alter` 元素的原因，即使标记上没有变音记号。
 
-Alter values of -2 and 2 can be used for double-flat and double-sharp. Decimal values can be used for microtones (e.g., 0.5 for a quarter-tone sharp), but not all programs may convert this into
-MIDI pitch-bend data.
+`alter` 值为 -2 和 2 时用于双降调和双升调。小数值可以用于微调（例如，0.5 为升四分之一调），但并非所有程序都可以将其转换为 MIDI 数据。
 
-For rests, a rest element is used instead of the pitch element. The whole rest in 3/4 that begins the voice part is represented as:
+对于休止符，使用 `rest` 代替 `pitch` 元素。在人声声部的 3/4 处的全休止符表示为：
 
 ```xml
 <note>
@@ -100,15 +99,15 @@ For rests, a rest element is used instead of the pitch element. The whole rest i
 
 ## 时值
 
-The duration element is an integer that represents a note's duration in terms of divisions per quarter note. Since our example has 24 divisions per quarter note in the voice part, a quarter note has a duration of 24. The eighth-note triplets have a duration of 8, while the eighth notes have a duration of 12.
+The `duration` element is an integer that represents a note's duration in terms of divisions per quarter note. Since our example has 24 divisions per quarter note in the voice part, a quarter note has a duration of 24. The eighth-note triplets have a duration of 8, while the eighth notes have a duration of 12.
 
 ## 连结音
 
-The sounding part of a tied note is indicated by the tie element. The tie element has a type of start for the starting note of a tie, and a type of stop for the ending note in a tie. A note element can have two tie elements. If a note is tied to the notes both before and after it, place the tie to the previous note, `<tie type="stop">`, before the `<tie type="start">` to the next note.
+The sounding part of a tied note is indicated by the `tie` element. The `tie` element has a type of start for the starting note of a tie, and a type of stop for the ending note in a tie. A note element can have two `tie` elements. If a note is tied to the notes both before and after it, place the tie to the previous note, `<tie type="stop">`, before the `<tie type="start">` to the next note.
 
 ## 和弦
 
-The duration elements in MusicXML move a musical counter. To play chords, we need to indicate that a note should start at the same time as the previous note, rather than following the previous note. To do this in MusicXML, add a chord element to the note.
+The `duration` elements in MusicXML move a musical counter. To play chords, we need to indicate that a note should start at the same time as the previous note, rather than following the previous note. To do this in MusicXML, add a `chord` element to the note.
 
 In our example, the piano part does not have rhythms more complex than eighth notes, so our converter sets the divisions value to 2. With 2 divisions per quarter note, the sound portion of the first chord in the piano part is represented as:
 
@@ -139,7 +138,7 @@ In our example, the piano part does not have rhythms more complex than eighth no
 </note>
 ```
 
-Each note in the chord following the first one includes a chord element before the pitch element.
+Each note in the chord following the first one includes a `chord` element before the `pitch` element.
 
 If you find that you have notes in a chord with different durations, you are probably better representing this as multi-part music rather than a chord. If you must have notes with different durations in the chord, the longest note must be the first note in the chord.
 
@@ -147,7 +146,7 @@ If you find that you have notes in a chord with different durations, you are pro
 
 While lyrics are not yet used in sound generation, they are included in Standard MIDI files, so we will discuss them here with the other MIDI-compatible features of MusicXML.
 
-Lyrics in MusicXML use an optional syllabic element to indicate how a syllable fits into a word, rather than having conventions based on hyphens and spaces as some other formats do. The values for syllabic can be "single", "begin", "end", or "middle". We saw earlier that the E-flat starting the third measure had a syllabic value of "end", since "meil" was the end of a twosyllable word. The "ma" syllable in "image" has a syllabic value of "middle". In the second measure, the notes are:
+Lyrics in MusicXML use an optional `syllabic` element to indicate how a syllable fits into a word, rather than having conventions based on hyphens and spaces as some other formats do. The values for syllabic can be "single", "begin", "end", or "middle". We saw earlier that the E-flat starting the third measure had a syllabic value of "end", since "meil" was the end of a twosyllable word. The "ma" syllable in "image" has a syllabic value of "middle". In the second measure, the notes are:
 
 ```xml
 <note>

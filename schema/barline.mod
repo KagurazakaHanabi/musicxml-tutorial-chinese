@@ -3,7 +3,7 @@
 
 	Version 3.1
 	
-	Copyright Â© 2004-2017 the Contributors to the MusicXML 
+	Copyright © 2004-2017 the Contributors to the MusicXML 
 	Specification, published by the W3C Music Notation Community
 	Group under the W3C Community Final Specification Agreement 
 	(FSA): 
@@ -57,7 +57,7 @@
 >
 
 <!--
-	bar-style ?????????? regular, dotted, dashed, heavy, light-light, 
+	bar-style 包含样式信息。值可以是 regular, dotted, dashed, heavy, light-light, 
 	light-heavy, heavy-light, heavy-heavy, tick (a short stroke through the top 
 	line), short (a partial barline between the 2nd and 4th lines), and none.
 -->
@@ -67,8 +67,8 @@
 >
 
 <!--
-	editorial ? wavy-line ???segno ? fermata ???? common.mod ??????
-	?????????????????
+	editorial 和 wavy-line 实体，segno 和 fermata 元素都在 common.mod 文件中定义。
+	它们都可以应用于音符和小节线。
 -->
 
 <!--
@@ -107,7 +107,7 @@
 >
 
 <!--
-	?????The start of the repeat has a forward direction
+	重复标记。The start of the repeat has a forward direction
 	while the end of the repeat has a backward direction. Backward
 	repeats that are not part of an ending can use the times
 	attribute to indicate the number of times the repeated section

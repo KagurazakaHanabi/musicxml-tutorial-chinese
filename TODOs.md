@@ -14,7 +14,7 @@
 - [ ] schema/attributes.mod
 - [ ] schema/barline.mod
 - [ ] schema/common.mod
-- [ ] schema/container.dtd
+- [X] schema/container.dtd
 - [ ] schema/direction.mod
 - [ ] schema/identity.mod
 - [ ] schema/layout.mod

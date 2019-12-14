@@ -1,20 +1,20 @@
 # 打击乐器
 
-Percussion instruments can be either pitched or unpitched. Percussion instruments with definite pitch, such as timpani or mallet instruments, are handled using normal musical notation.
+打击乐器可以是有音高或者无音高的。具有定音高的打击乐器（例如定音鼓或槌乐器）是使用正常的音乐符号处理的。
 
 When the instrument has no definite pitch, like a bass drum or snare drum, notation gets stretched. The use of vertical space to represent pitch instead is used to represent different instruments. Yet sometimes we have more percussion instruments handled by one player than can fit into the lines on a staff. In other cases, we may have only one unpitched instrument to notate, where the vertical space on a 5-line staff would be wasted.
 
-MusicXML allows percussion music to be represented both as heard and as notated by use of several features:
+MusicXML 允许使用几种功能将打击乐表示为声音和乐谱：
 
-- Representing unpitched instruments visually by specifying placement on the staff.
-- As with tablature, staves may be more or less than 5 lines high.
+- 通过指定在谱线上的位置直观地表示无音高的乐器。
+- 和 TAB 谱一样，谱线可能会高过或少于 5 行。
 - Specifying multiple instruments per part
 - Specifying the MIDI playback for each instrument (for instance, by a single MIDI pitch in a percussion kit).
 - Alternate notehead shapes let multiple instruments to share a single line on the staff.
 
 ## Unpitched Notes
 
-To illustrate MusicXML's percussion features, here's a two-bar example for two players: one on a drum kit, and one on cowbell:
+为了说明 MusicXML 的打击乐器功能，以下是两个演奏者的两个音色示例：一个在架子鼓上，一个在牛铃上：
 
 ![Unpitched Notes](../assets/07.jpg)
 
@@ -79,7 +79,7 @@ Percussion parts are one case of many where multiple instruments are sharing the
 
 To represent MIDI playback for each instrument, we add a midi-instrument element for each  score-instrument. In this case, we are using a General MIDI instrument, so we include a midichannel of 10 for each instrument. We then use the midi-unpitched element to indicate the MIDI  pitch that corresponds to a particular sound in a General MIDI drum kit.
 
-The part-list for our two-bar example looks like this:
+The `part-list` for our two-bar example looks like this:
 
 ```xml
 <part-list>
@@ -133,7 +133,7 @@ The part-list for our two-bar example looks like this:
 </part-list>
 ```
 
-Each note then includes an unpitched element to show where the note is on the staff, and an instrument element to indicate which instrument is used and how to play it back using MIDI. The first kick drum note looks like this:
+Each note then includes an `unpitched` element to show where the note is on the staff, and an `instrument` element to indicate which instrument is used and how to play it back using MIDI. The first kick drum note looks like this:
 
 ```xml
 <note default-x="78">
@@ -155,7 +155,7 @@ Finale creates these instrument names like "P1-X2" to make it easy to generate u
 
 The one remaining task is to specify the alternate noteheads that distinguish the hi-hat from the cymbal. While the MusicXML playback can distinguish these by the use of different instruments, a drummer will certainly appreciate having different notehead shapes for different instrument on the same line.
 
-The MusicXML notehead element specifies these different shapes. Values can be slash, triangle, diamond, square, cross, x, circle-x, inverted triangle, arrow down, arrow up, circled, slashed, back slashed, normal, cluster, circle dot, left triangle, rectangle, none, do, re, mi, fa, fa up, so, la, ti, and other. Enclosed shapes like normal, diamond, triangle, and square can use the filled attribute to indicate a filled or hollow shape.
+The MusicXML `notehead` element specifies these different shapes. Values can be slash, triangle, diamond, square, cross, x, circle-x, inverted triangle, arrow down, arrow up, circled, slashed, back slashed, normal, cluster, circle dot, left triangle, rectangle, none, do, re, mi, fa, fa up, so, la, ti, and other. Enclosed shapes like normal, diamond, triangle, and square can use the filled attribute to indicate a filled or hollow shape.
 
 The first two notes of the cymbal/hi-hat line look like this:
 

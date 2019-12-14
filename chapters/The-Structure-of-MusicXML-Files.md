@@ -164,11 +164,11 @@ The `encoding` element contains information about how the MusicXML file was crea
 
 `part-list` 是所有 MusicXML 乐谱中所需的一部分。它由一系列 `sore-part` 元素组成，每个元素都具有必需的 `id` 属性和 `part-name` 元素。By convention, our software simply numbers the parts as "P1", "P2", etc. to create the `id` attributes. You may use whatever technique you like as long as it produces unique names for each `score-part`.
 
-In addition to the `part-name`, there are many optional elements that can be included in a `score-part`:
+除了 `part-name` 之外还有很多可以包含在 `score-part` 中的元素：
 
-- An `identification` element, helpful if individual parts come from different sources.
-- A `part-abbreviation` element. Often, you will use the `part-name` for the name used at the start of the score, and the `part-abbreviation` for the abbreviated name used in succeeding systems.
-- A `group` element, used when different parts can be used for different purposes. In MuseData, for instance, there will often be different parts used for a printed score, a printed part, a MIDI sound file, or for data analysis.
-- One or more `score-instrument` elements, used to describe instrument sounds and virtual instrument settings, as well as to define multiple instruments within a `score-part`. This element serves as a reference point for MIDI instrument changes.
-- One or more `midi-device` elements for identifying the MIDI devices or ports that are being used in a multi-port configuration. Multiple devices let you get beyond MIDI's 16-channel barrier.
-- One or more `midi-instrument` elements, specifying the initial MIDI setup for each `score-instrument` within a part.
+- `identification`，如果各个部分来自不同的来源，则很有帮助。
+- `part-abbreviation`，通常，您会在乐谱开始时使用 `part-name` 作为名称，而在后续系统中使用 `part-abbreviation` 作为缩写名称。
+- `group`，used when different parts can be used for different purposes. In MuseData, for instance, there will often be different parts used for a printed score, a printed part, a MIDI sound file, or for data analysis.
+- 一个或多个 `score-instrument` 元素，used to describe instrument sounds and virtual instrument settings, as well as to define multiple instruments within a `score-part`. This element serves as a reference point for MIDI instrument changes.
+- 一个或多个 `midi-device` elements for identifying the MIDI devices or ports that are being used in a multi-port configuration. Multiple devices let you get beyond MIDI's 16-channel barrier.
+- 一个或多个 `midi-instrument` 元素，为每个声部中的 `score-instrument` 指定初始 MIDI 设置。

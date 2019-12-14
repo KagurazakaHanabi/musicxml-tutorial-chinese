@@ -26,9 +26,9 @@ The first chord is a G major sixth chord with the fifth (D) in the bass. The sec
 </harmony>
 ```
 
-Each chord symbol has at least two elements: a `<root>` element to indicate the root of the chord, and a `kind` element to indicate the type of the chord. Here, we have a root of G and a kind of major-sixth. MusicXML 3.1 supports 33 different `kind` elements, listed in the direction.mod file. The kind element has a text attribute that indicates that the chord is displayed as G6, not as Gmaj6, GM6, or other spelling that could represent the same chord. This symbol also indicates the bass of the chord, represented using the bass element.
+每个和弦符号至少包含两个元素： `<root>` 元素表示和弦的根音，`kind` 元素表示和弦的类型。Here, we have a root of G and a kind of major-sixth. MusicXML 3.1 支持 33 种不同的 `kind` 元素值，在 direction.mod 文件中列出。The `kind` element has a `text` attribute that indicates that the chord is displayed as G6, not as Gmaj6, GM6, or other spelling that could represent the same chord. This symbol also indicates the bass of the chord, represented using the `bas`s element.
 
-Both the root and the bass element divide the pitch into step and `alter` elements, similar to how the pitch element works. The root element uses the `root-step` and `root-alter` elements, while the `bass` element uses the `bass-step` and `bass-alter` elements. There is no element that corresponds to the `octave` element for pitch, since this information is not considered part of the harmonic analysis or the chord symbol.
+Both the `root` and the `bass` element divide the pitch into `step` and `alter` elements, similar to how the `pitch` element works. The `root` element uses the `root-step` and `root-alter` elements, while the `bass` element uses the `bass-step` and `bass-alter` elements. There is no element that corresponds to the `octave` element for pitch, since this information is not considered part of the harmonic analysis or the chord symbol.
 
 MusicXML can represent all sorts of alterations to the built-in 33 kinds of chords. Degrees in the chord can be added, subtracted (e.g. “no 3”), or altered (e.g. “#5”). Here is how the second A(9) chord symbol is presented in MusicXML, using an added degree:
 
@@ -46,15 +46,15 @@ MusicXML can represent all sorts of alterations to the built-in 33 kinds of chor
 </harmony>
 ```
 
-The `degree` element shows that we are adding an unaltered 9th degree to the chord, notating it with just the degree value (not as “add 9”) and with the added degrees in parentheses. The value of the `degree-type` element can be add, alter, or subtract. If the `degree-type` value is alter or subtract, the degree-alter value is relative to the degree already in the chord based on its `kind` element. If the `degree-type` value is add, the degree-alter value is relative to a dominant chord.
+The `degree` element shows that we are adding an unaltered 9th degree to the chord, notating it with just the degree value (not as “add 9”) and with the added degrees in parentheses. The value of the `degree-type` element can be add, alter, or subtract. If the `degree-type` value is alter or subtract, the `degree-alter` value is relative to the degree already in the chord based on its `kind` element. If the `degree-type` value is add, the `degree-alter` value is relative to a dominant chord.
 
-MusicXML’s `harmony` element contains additional features to support formatting and harmonic analysis. Full details are available in the direction.mod file.
+MusicXML 的 `harmony` 元素包含其他功能，以支持和声分析和格式设置。在 direction.mod 文件中有所有的详细信息。
 
 ## 和弦图
 
 Chord diagrams, also known as chord frames, are used to indicate how a chord is played on a fretted instrument such as the guitar. The vertical lines in the chord diagrams represent strings, while the horizontal spaces represent frets. An x above a string indicates that the string is muted, while an o above a string represents an open string.
 
-MusicXML uses the `frame` element to represent chord diagrams. Let us look at the `harmony` element for the first G6 chord again, this time including the `frame` element for the chord diagram:
+MusicXML 使用 `frame` 元素表现和弦图。Let us look at the `harmony` element for the first G6 chord again, this time including the `frame` element for the chord diagram:
 
 ```xml
 <harmony default-y="100">
@@ -93,9 +93,9 @@ MusicXML uses the `frame` element to represent chord diagrams. Let us look at th
 </harmony>
 ```
 
-The `frame` element starts with frame-strings and frame-fret elements to indicate the size of the frame. Each string that is played is then represented with a `frame-note` element. The lowest string, string 6, is muted in this diagram, so it has no corresponding `frame-note` element. The highest string, string 1, is open, so its fret value is set to 0. The `frame` element’s `unplayed` attribute indicates what to display above a string like string 6 that has no `frame-note` element.
+The `frame` element starts with `frame-strings` and `frame-fret` elements to indicate the size of the frame. Each string that is played is then represented with a `frame-note` element. The lowest string, string 6, is muted in this diagram, so it has no corresponding `frame-note` element. The highest string, string 1, is open, so its fret value is set to 0. The `frame` element’s `unplayed` attribute indicates what to display above a string like string 6 that has no `frame-note` element.
 
-The positioning attributes indicate the vertical position of both the chord symbol text in the `harmony` element and the chord diagram in the `frame` element. The `valign` attribute of the frame element indicates that the default-y position represents the top of the chord diagram. The `halign` attribute indicate that both the chord symbol text and chord diagram are center-aligned.
+The positioning attributes indicate the vertical position of both the chord symbol text in the `harmony` element and the chord diagram in the `frame` element. The `valign` attribute of the `frame` element indicates that the default-y position represents the top of the chord diagram. The `halign` attribute indicate that both the chord symbol text and chord diagram are center-aligned.
 
 In the second chord diagram, the first fret we see in the diagram corresponds to the sixth fret on the guitar. This is represented in MusicXML by the `first-fret` element. Unlike the other diagrams, this one shows only four frets.
 

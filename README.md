@@ -26,7 +26,7 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - 乐谱的基础元数据
 - [MusicXML 中 MIDI 兼容的部分](chapters/The-MIDI-Compatible-Part-of-MusicXML.md)
   - 属性
-    - Divisions
+    - 分度 (Divisions)
     - 调号
     - 拍号
     - 移调
@@ -64,7 +64,7 @@ MusicXML 是数字乐谱的交换和分发格式。目标是为西方常用音�
   - Unpitched Notes
   - 谱线
   - Multiple Instruments Per Part
-  - Notehead Shapes
+  - 符头形状
   - Measure Styles
 - [压缩的 .MXL 文件](chapters/Compressed-MXL-Files.md)
   - 压缩文件格式

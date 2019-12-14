@@ -3,7 +3,7 @@
 
 	Version 3.1
 	
-	Copyright © 2004-2017 the Contributors to the MusicXML 
+	Copyright Â© 2004-2017 the Contributors to the MusicXML 
 	Specification, published by the W3C Music Notation Community
 	Group under the W3C Community Final Specification Agreement 
 	(FSA): 
@@ -349,7 +349,7 @@
 	help specify the appearance of symbols that share the same
 	MusicXML semantics. Its value is a SMuFL canonical glyph
 	name. Noteheads in the SMuFL "Note name noteheads" range
-	(U+E150–U+E1AF) should not use the smufl attribute or the
+	(U+E150â€“U+E1AF) should not use the smufl attribute or the
 	"other" value, but instead use the notehead-text element.
 
 	For the enclosed shapes, the default is to be hollow for

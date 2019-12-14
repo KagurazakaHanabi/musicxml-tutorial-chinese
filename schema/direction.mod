@@ -3,7 +3,7 @@
 
 	Version 3.1
 	
-	Copyright © 2004-2017 the Contributors to the MusicXML 
+	Copyright Â© 2004-2017 the Contributors to the MusicXML 
 	Specification, published by the W3C Music Notation Community
 	Group under the W3C Community Final Specification Agreement 
 	(FSA): 
@@ -804,8 +804,8 @@
 	    major: a triangle, like Unicode 25B3
 	    minor: -, like Unicode 002D
 	    augmented: +, like Unicode 002B
-	    diminished: °, like Unicode 00B0
-	    half-diminished: ø, like Unicode 00F8
+	    diminished: Â°, like Unicode 00B0
+	    half-diminished: Ã¸, like Unicode 00F8
 
 	For the major-minor kind, only the minor symbol is used when
 	use-symbols is yes. The major symbol is set using the symbol

@@ -57,11 +57,9 @@
 >
 
 <!--
-	Bar-style contains style information. Choices are
-	regular, dotted, dashed, heavy, light-light, 
-	light-heavy, heavy-light, heavy-heavy, tick (a
-	short stroke through the top line), short (a partial
-	barline between the 2nd and 4th lines), and none.
+	bar-style ?????????? regular, dotted, dashed, heavy, light-light, 
+	light-heavy, heavy-light, heavy-heavy, tick (a short stroke through the top 
+	line), short (a partial barline between the 2nd and 4th lines), and none.
 -->
 <!ELEMENT bar-style (#PCDATA)>
 <!ATTLIST bar-style
@@ -69,9 +67,8 @@
 >
 
 <!--
-	The editorial entity and the wavy-line, segno, and fermata
-	elements are defined in the common.mod file. They can
-	apply to both notes and barlines.
+	editorial ? wavy-line ???segno ? fermata ???? common.mod ??????
+	?????????????????
 -->
 
 <!--
@@ -110,7 +107,7 @@
 >
 
 <!--
-	Repeat marks. The start of the repeat has a forward direction
+	?????The start of the repeat has a forward direction
 	while the end of the repeat has a backward direction. Backward
 	repeats that are not part of an ending can use the times
 	attribute to indicate the number of times the repeated section

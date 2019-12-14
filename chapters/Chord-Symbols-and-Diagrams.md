@@ -6,13 +6,13 @@ MusicXML 的 `harmony` 元素对和声内容以及和弦符号和 和弦图的�
 
 ## 和弦符号
 
-Here is a three-bar example of a simple lead sheet. It contains the melody together with chord symbols and diagrams for how to play the chords on a guitar:
+这是个三小节的简单示例，它包含旋律以及和弦符号和图表，说明如何在吉他上弹奏和弦：
 
 ![Chord Symbols](../assets/05.jpg)
 
 The first chord is a G major sixth chord with the fifth (D) in the bass. The second chord is notated as an A major chord with an added ninth degree. Another analysis might be to call it a dominant ninth chord with a missing seventh degree. MusicXML supports both types of analysis. For this example, we follow the written chord diagram notation. The third chord, an A11, will be discussed in the chord diagram section, as it includes both fingerings and a barre symbol.
 
-这是在 MusicXML 文件中第一个 G6 和弦符号的表示方式，暂时省略了和弦图：
+这是在 MusicXML 文件中一个 G6 和弦的表示方式，暂时省略了和弦图：
 
 ```xml
 <harmony default-y="100">

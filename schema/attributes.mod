@@ -16,31 +16,27 @@
 -->
 
 <!--
-	The attributes DTD module contains the attributes element
-	and its children, such as key and time signatures.
+	attributes DTD ???? attributes ????????????????
 -->
 
 <!-- Entities -->
 
 <!--
-	The time-separator entity indicates how to display the
-	arrangement between the beats and beat-type values in a
-	time signature. The default value is none. The horizontal,
-	diagonal, and vertical values represent horizontal, diagonal
-	lower-left to upper-right, and vertical lines respectively. 
-	For these values, the beats and beat-type values are arranged
-	on either side of the separator line. The none value represents
-	no separator with the beats and beat-type arranged vertically.
-	The adjacent value represents no separator with the beats and
-	beat-type arranged horizontally.
+	time-separator ???????? beats ? beat-type ??????????
+	
+	???? none?horizontal, vertical ? diagonal ???????????????
+	??????????????beat ? beat-type ??????????
+	none ??? beats ? beat-type ??????????????
+	adjacent ??? beats ? beat-type ??????????????
 -->
 <!ENTITY % time-separator
 	"separator (none | horizontal | diagonal | 
 		vertical | adjacent) #IMPLIED">
 
 <!--
-	The time-symbol entity indicates how to display a time
-	signature. The normal value is the usual fractional display,
+	time-symbol ???????????
+	
+	The normal value is the usual fractional display,
 	and is the implied symbol type if none is specified. Other
 	options are the common and cut time symbols, as well as a
 	single number with an implied denominator. The note symbol
@@ -148,36 +144,25 @@
 >
 
 <!--
-	Musical notation duration is commonly represented as
-	fractions. The divisions element indicates how many 
-	divisions per quarter note are used to indicate a note's
-	duration. For example, if duration = 1 and divisions = 2,
-	this is an eighth note duration. Duration and divisions
-	are used directly for generating sound output, so they
-	must be chosen to take tuplets into account. Using a
-	divisions element lets us use just one number to 
-	represent a duration for each note in the score, while
-	retaining the full power of a fractional representation.
-	For maximum compatibility with Standard MIDI Files, the
-	divisions value should not exceed 16383.
+	?????????????divisions ???????????????????????
+	????? duration = 1?divisions = 2?????????duration ? divisions 
+	??????????????????????????? divisions ????????
+	?????????????????????????????????????????
+	??? MIDI ?????divisions ????? 16383?
 -->
 <!ELEMENT divisions (#PCDATA)>
 
 <!--
-	Time signatures are represented by two elements. The
-	beats element indicates the number of beats, as found in
-	the numerator of a time signature. The beat-type element
-	indicates the beat unit, as found in the denominator of
-	a time signature.
+	??????????beats ???????????????beat-type ???????
+	???????
 
 	Multiple pairs of beats and beat-type elements are used for
 	composite time signatures with multiple denominators, such
 	as 2/4 + 3/8. A composite such as 3+2/8 requires only one
 	beats/beat-type pair. 
 
-	The interchangeable element is used to represent the second
-	in a pair of interchangeable dual time signatures, such as
-	the 6/8 in 3/4 (6/8). A separate symbol attribute value is
+	interchangeable ???????????????????? 3/4 (6/8) ?? 6/8?
+	A separate symbol attribute value is
 	available compared to the time element's symbol attribute,
 	which applies to the first of the dual time signatures.
 	The time-relation element indicates the symbol used to
@@ -185,14 +170,10 @@
 	Valid values are parentheses, bracket, equals, slash, space,
 	and hyphen.
 
-	A senza-misura element explicitly indicates that no time
-	signature is present. The optional element content
-	indicates the symbol to be used, if any, such as an X.
-	The time element's symbol attribute is not used when a
-	senza-misura element is present.
+	senza-misura ????????????????????????????????? 
+	X??? senza-misura ??????? time ??? symbol ???
 
-	The print-object attribute allows a time signature to be
-	specified but not printed, as is the case for excerpts
+	print-object ?????????????as is the case for excerpts
 	from the middle of a score. The value is "yes" if
 	not present. The optional number attribute refers to staff
 	numbers within the part, from top to bottom on the system. 
@@ -342,9 +323,8 @@
 <!ELEMENT staff-lines (#PCDATA)>
 
 <!--
-	The tuning-step, tuning-alter, and tuning-octave
-	elements are defined in the common.mod file. Staff
-	lines are numbered from bottom to top.
+	tuning-step?tuning-alter?? tuning-octave ??? common.mod ????????
+	???????
 -->
 <!ELEMENT staff-tuning
 	(tuning-step, tuning-alter?, tuning-octave)>
@@ -353,10 +333,8 @@
 >
 
 <!--
-	The capo element indicates at which fret a capo should
-	be placed on a fretted instrument. This changes the
-	open tuning of the strings specified by staff-tuning
-	by the specified number of half-steps.
+	capo ?????????????????????????????????
+	staff-tuning ????????
 -->
 <!ELEMENT capo (#PCDATA)>
 

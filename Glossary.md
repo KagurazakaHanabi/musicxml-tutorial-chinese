@@ -77,6 +77,7 @@
 
 ## O
 
+- Oboe 双簧管
 - Octave 八度
 
 ## P

@@ -16,9 +16,8 @@
 -->
 
 <!--
-	This file contains entities and elements that are common
-	across multiple DTD modules. In particular, several elements
-	here are common across both notes and measures.
+	该文件包含在多个 DTD 模块之间通用的实体和元素。特别是，一些元素在音符和小节之间是
+	相同的。
 -->
 
 <!-- Entities -->
@@ -47,8 +46,7 @@
 -->
 
 <!--
-	Calendar dates are represented yyyy-mm-dd format, following
-	ISO 8601.
+	日历日期以 yyyy-mm-dd 格式表示，遵循 ISO 8601。
 -->
 <!ENTITY % yyyy-mm-dd "(#PCDATA)">
 
@@ -109,26 +107,24 @@
 <!ENTITY % tremolo-type "(start | stop | single | unmeasured)">
 
 <!--
-	The yes-no entity is used for boolean-like attributes.
+	yes-no 实体用于类似 boolean 的属性。
 -->
 <!ENTITY % yes-no "(yes | no)">
 
 <!--
-	The yes-no-number entity is used for attributes that can
-	be either boolean or numeric values. Values can be "yes",
-	"no", or numbers.
+	yes-no-number 实体用于值可以是 boolean 或数字的属性。
+	值可以是 "yes"，"no"，或数字。
 -->
 <!ENTITY % yes-no-number "NMTOKEN">
 
 <!--
-	The symbol-size entity is used to distinguish between
-	full, cue sized, grace cue sized, and oversized symbols.
+	symbol-size 实体用于区分完整（full），提示大小（cue），宽限提示大小（grace-cue）
+	和超大符号（large）。
 -->
 <!ENTITY % symbol-size "(full | cue | grace-cue | large)">
 
 <!--
-	The above-below type is used to indicate whether one
-	element appears above or below another element.
+	above-below 用于指示一个元素出现在另一元素之上（above）还是之下（below）。
 -->
 <!ENTITY % above-below "(above | below)">
 
@@ -145,9 +141,7 @@
 <!ENTITY % top-bottom "(top | bottom)">
 
 <!--
-	The left-right entity is used to indicate whether one
-	element appears to the left or the right of another
-	element.
+	left-right 用于指示一个元素出现在另一元素左边（left）还是右边（right）。
 -->
 <!ENTITY % left-right "(left | right)">
 

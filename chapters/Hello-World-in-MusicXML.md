@@ -168,7 +168,7 @@ MusicXML 允许使用多种谱号，包括今天不再使用的。此处，标�
 
 For example, if you want to better approximate a swing feel than the equal eighth notes notated in a jazz chart, you might use different duration values while the type remains an eighth note. Bach's music contains examples of shorthand notation where the actual note durations do not match the standard interpretation of the notes on the page, due to his use of a notational shorthand for certain rhythms.
 
-The `duration` element should reflect the intended duration, not a longer or shorter duration specific to a certain performance. The `note` element has attack and release attributes that suggest ways to alter a note's start and stop times from the nominal duration indicated directly or indirectly by the score.
+The `duration` element should reflect the intended duration, not a longer or shorter duration specific to a certain performance. The `note` element has `attack` and `release` attributes that suggest ways to alter a note's start and stop times from the nominal duration indicated directly or indirectly by the score.
 
 ```xml
       </note>
